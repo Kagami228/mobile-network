@@ -1,0 +1,42 @@
+module subscribers {
+
+  namespace "http://example.com/subscribers";
+  prefix subscribers;
+
+  import ietf-yang-types { prefix yang; }
+	
+  container discription {
+    config true;
+	list user{
+		leaf number{
+			type string;
+			default "+380000000000";
+			description "user phone number.";
+		}
+		
+		leaf userName {
+			type string;
+			description "user name.";
+		}
+		list  incomingNumber{
+			type number;
+			//type userName;
+			description "incoming number";
+		}
+		leaf state{
+			type enumeration {
+				enum  busy{
+					value 1;
+					description
+					"busy";
+				}
+				enum  hangUp{
+					value 2;
+					description
+					"hangUp";
+				}
+			}
+		}
+	  }
+	}
+ }

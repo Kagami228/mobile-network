@@ -249,7 +249,7 @@ build Listener@exe/main.cpp.o: cpp_COMPILER ../main.cpp
  DEPFILE = Listener@exe/main.cpp.o.d
  ARGS = -IListener@exe -I. -I.. -I../libsysrepocpp/source/../headers -I../libyangcpp/source/../headers -I../libyangextension/source/../models -I../libyangextension/source/../headers -I/usr/local/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -pthread
 
-build Listener: cpp_LINKER Listener@exe/main.cpp.o | liblibyangcpp.a liblibsysrepocpp.a liblibyangextension.a
+build Listener: cpp_LINKER Listener@exe/main.cpp.o | liblibsysrepocpp.a liblibyangcpp.a liblibyangextension.a
  LINK_ARGS = -Wl,--no-undefined -Wl,--as-needed -Wl,--start-group liblibsysrepocpp.a liblibyangcpp.a liblibyangextension.a -lpthread -ldl -L/usr/local/lib -lsysrepo -lpcre -Wl,--end-group
 
 # Test rules
