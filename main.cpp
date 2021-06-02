@@ -19,7 +19,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+
 
 #include <unistd.h>
 #include <iostream>
@@ -35,7 +35,7 @@ using namespace std;
 
 volatile int exit_application = 0;
 
-/* Helper function for printing changes given operation, old and new value. */
+/* Helper function for printing changes given operation, old and new value. 
 static void
 print_change(sysrepo::S_Change change) {
     cout << endl;
@@ -77,7 +77,7 @@ print_change(sysrepo::S_Change change) {
 }
 
 /* Function to print current configuration state.
- * It does so by loading all the items of a session and printing them out. */
+ * It does so by loading all the items of a session and printing them out. 
 static void
 print_current_config(sysrepo::S_Session session, const char *module_name)
 {
@@ -96,7 +96,7 @@ print_current_config(sysrepo::S_Session session, const char *module_name)
     }
 }
 
-/* Helper function for printing events. */
+/* Helper function for printing events. 
 const char *ev_to_str(sr_event_t ev) {
     switch (ev) {
     case SR_EV_CHANGE:
@@ -116,7 +116,7 @@ sigint_handler(int signum)
 }
 
 /* Notable difference between c implementation is using exception mechanism for open handling unexpected events.
- * Here it is useful because `Conenction`, `Session` and `Subscribe` could throw an exception. */
+ * Here it is useful because `Conenction`, `Session` and `Subscribe` could throw an exception. 
 int
 main(int argc, char **argv)
 {
@@ -130,16 +130,16 @@ main(int argc, char **argv)
 
         cout << "hello"<< endl;
         cout << "Application will watch for changes in " << module_name << endl;
-        /* connect to sysrepo */
+        /* connect to sysrepo 
         cout << "connecting to sysrepo" <<endl;
         auto conn = std::make_shared<sysrepo::Connection>();
         
 
-        /* start session */
+        /* start session 
         cout << "starting session" << endl;
         auto sess = std::make_shared<sysrepo::Session>(conn);
 
-        /* subscribe for changes in running config */
+        /* subscribe for changes in running config 
         auto subscribe = std::make_shared<sysrepo::Subscribe>(sess);
         auto cb = [] (sysrepo::S_Session sess, const char *module_name, const char *xpath, sr_event_t event,
             uint32_t request_id) {
@@ -154,7 +154,7 @@ main(int argc, char **argv)
 
                 cout << "\n\n ========== CHANGES: =============================================\n" << endl;
 
-                snprintf(change_path, MAX_LEN, "/%s:*//.", module_name);
+                snprintf(change_path, MAX_LEN, "/%s://.", module_name);
 
                 auto it = sess->get_changes_iter(change_path);
 
@@ -172,14 +172,14 @@ main(int argc, char **argv)
         };
         subscribe->module_change_subscribe(module_name, cb);
 
-        /* read running config */
+        /* read running config 
         cout << "\n\n ========== READING RUNNING CONFIG: ==========\n" << endl;
         print_current_config(sess, module_name);
 
-        /* loop until ctrl-c is pressed / SIGINT is received */
+        /* loop until ctrl-c is pressed / SIGINT is received 
         signal(SIGINT, sigint_handler);
         while (!exit_application) {
-            sleep(1000);  /* or do some more useful work... */
+            sleep(1000);  /* or do some more useful work... 
         }
 
         cout << "Application exit requested, exiting." << endl;
@@ -190,4 +190,26 @@ main(int argc, char **argv)
     }
 
     return 0;
+}
+*/
+#include <iostream>
+
+
+int main(){
+    std::string command;
+    while(std::getline(std::cin,command)){
+        std::string cm="";
+        for(int i=0; i<command.size();i++){
+            
+            if(command[i]==' '){
+                if (cm=="register")
+                {
+                    
+                }
+            }
+            else {
+                cm=cm+command[i];
+            }
+        }
+    }
 }
