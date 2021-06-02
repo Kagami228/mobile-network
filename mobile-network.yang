@@ -11,7 +11,8 @@ module subscribers {
 		leaf number{
 			type string;
 			default "+380000000000";
-			description "user phone number.";
+			description "user phone number.mandatory filled";
+			mandatory true;
 		}
 		
 		leaf userName {
@@ -25,17 +26,25 @@ module subscribers {
 		}
 		leaf state{
 			type enumeration {
+				
 				enum  busy{
 					value 1;
 					description
 					"busy";
 				}
-				enum  hangUp{
+				enum  active{
 					value 2;
 					description
-					"hangUp";
+					"active";
+				}
+				enum  idle{
+					value 3;
+					description
+					"idle";
 				}
 			}
+			description "status. mandatory filled";
+			mandatory true;
 		}
 	  }
 	}
