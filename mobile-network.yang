@@ -8,7 +8,7 @@ module subscribers {
   container discription {
     config true;
 	list user{
-		key "userName";
+		key "number";
 
 		leaf userName {
 			type string;
@@ -18,7 +18,8 @@ module subscribers {
 
 		leaf number{
 			type string;
-			default "+380000000000";
+			mandatory true;
+
 			description "user phone number.mandatory filled";
 		}
 		
