@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 void Registr_user(std::string &phone, std::string &user)
 {
@@ -24,118 +25,61 @@ void Reject(){
 void ChangeName(std::string &name){
     std::cout<<"Your new name "<<name<<std::endl;
 }
+void cmd_call(std::vector<std::string> &s){
+    if(s[0]=="registr")
+    {
+        Registr_user(s[1],s[2]);
+    } 
+    if(s[0]=="call")
+    {
+        Calling_to_phone(s[1]);
+    } 
+    if(s[0]=="change")
+    {
+        ChangeName(s[1]);
+    } 
+    if(s[0]=="reject")
+    {
+        Reject();
+    }
+    if(s[0]=="Callend")
+    {
+        CallEnd();
+    }
+    if(s[0]=="unregistr")
+    {
+        Unregistr();
+    }
+    if(s[0]=="answer")
+    {
+        Answer();
+    }
+}
 
 int main()
 {
     std::string command;
     std::getline(std::cin,command);
+    std::string delimiter = " ";
     while(true)
     {
-        std::string cm="";
-        for(int i=0; i<command.size();i++)
-        {
-            
-            if(command[i]==' ' or (i=command.size()-1))
-            {
-                if(i=command.size()-1)
-                {
-                    cm=cm+command[i];
-                }
-                if (cm=="register")
-                {
-                    std::string phone="";
-                    for(int j=i; j<command.size();j++)
-                    {
-                        if(command[j]==' ' or (j=command.size()-1))
-                        {
-                            if(j=command.size()-1)
-                            {
-                                phone=phone+command[j];
-                            }
-                            std::string name="";
-                            for(int o=j; o<command.size();o++)
-                            {
-                                if(command[o]==' ' or (o=command.size()-1))
-                                {
-                                    if(o=command.size()-1)
-                                    {
-                                        name=name+command[o];
-                                    }   
-                                    Registr_user(phone,name);
-                                }else{
-                                    name=name+command[o];
-                                }
-                            }
-                        }else{
-                            phone=phone+command[j];
-                        }
-                    }
-                    
-                } else if(cm=="unregistr")
-                {
-                    Unregistr();
-                       
-                }
-                else if(cm=="call")
-                {
-                    std::string calling="";
-                    for(int j=i; j<command.size();j++)
-                    {
-                        if(command[j]==' ' or (j=command.size()-1))
-                        {
-                            if(j=command.size()-1)
-                            {
-                                calling=calling+command[j];
-                            }
-                            Calling_to_phone(calling);
-                        }else
-                        {
-                            calling=calling=command[j];
-                        }
-                    }
-                }
-                else if(cm=="answer")
-                {
-                    Answer();
-                       
-                }
-                else if(cm=="callEnd")
-                {
-                    CallEnd();
-                       
-                }
-                else if(cm=="reject")
-                {
-                    Reject();
-                       
-                }
-                else if(cm=="name")
-                {
-                    std::string newName="";
-                    for(int j=i; j<command.size();j++)
-                    {
-                        if(command[j]==' ' or (j=command.size()-1))
-                        {
-                            if(j=command.size()-1)
-                            {
-                                newName=newName+command[j];
-                            }
-                            ChangeName(newName);
-                        }else
-                        {
-                            newName=newName=command[j];
-                        }
-                    }
-                       
-                }
-                else if(cm=="exit"){
-                    break;
-                }
-            }
-            else {
-                cm=cm+command[i];
+        std::vector<std::string> cmd;
+        size_t pos = 0;
+        std::string token;
+        int i=0;
+        while ((pos = command.find(delimiter)) != std::string::npos-1) {
+            token = command.substr(0, pos);
+            cmd.push_back(token);
+            //std::cout << token << std::endl;
+            command.erase(0, pos + delimiter.length());
+
+            if(pos==std::string::npos){
+                break;
             }
         }
+        cmd_call(cmd);
+
+        std::getline(std::cin,command);
     }
     return 0;
 }
