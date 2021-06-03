@@ -1,29 +1,37 @@
 module subscribers {
 
-  namespace "http://example.com/subscribers";
+  namespace "subscribers";
   prefix subscribers;
 
-  import ietf-yang-types { prefix yang; }
+  //import ietf-yang-types { prefix yang; }
 	
   container discription {
     config true;
 	list user{
+		key "userName";
+
+		leaf userName {
+			type string;
+			mandatory true;
+			description "user name.";
+		}
+
 		leaf number{
 			type string;
 			default "+380000000000";
 			description "user phone number.mandatory filled";
-			mandatory true;
 		}
 		
-		leaf userName {
-			type string;
-			description "user name.";
-		}
 		list  incomingNumber{
-			type number;
-			//type userName;
+			key "number";
+			leaf number{
+				type string;
+				mandatory true;
+				description "user phone number.mandatory filled";
+			}
 			description "incoming number";
 		}
+
 		leaf state{
 			type enumeration {
 				
