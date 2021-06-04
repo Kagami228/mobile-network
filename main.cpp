@@ -1,5 +1,19 @@
 #include <iostream>
 #include <vector>
+#include "libsysrepocpp/headers/Session.hpp"
+
+class NetConfAgent{
+    std::unique_ptr<sysrepo::Connection> Sesion;
+    std::unique_ptr<sysrepo::Session> Connection;
+    std::unique_ptr<sysrepo::Subscribe> Subscribe;
+
+    bool initSysrepo();
+    bool closeSysrepo();
+    bool fetchDsts();
+    bool syscrybeForModelChanges();
+    bool registrOpenData();
+    bool sybscribeForRpc();
+};
 
 void Registr_user(std::string &phone, std::string &user)
 {
