@@ -15,13 +15,13 @@ public:
         Connection = std::make_shared<sysrepo::Connection>();
         Session = std::make_shared<sysrepo::Session>(Connection);
         Subscribe = std::make_shared<sysrepo::Subscribe>(Session);
-        
+        return 1;
     }
     bool closeSysrepo(){
         Subscribe.reset();
         Session.reset();
         Connection.reset();
-
+        return 1;
     }
     bool fetchDsts();
     bool syscrybeForModelChanges();
