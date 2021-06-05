@@ -2,27 +2,43 @@
 #include <vector>
 #include "libsysrepocpp/headers/Session.hpp"
 
-class NetConfAgent{
-    std::unique_ptr<sysrepo::Connection> Sesion;
-    std::unique_ptr<sysrepo::Session> Connection;
-    std::unique_ptr<sysrepo::Subscribe> Subscribe;
 
-    bool initSysrepo();
-    bool closeSysrepo();
+class NetConfAgent{
+    std::shared_ptr<sysrepo::Connection> Connection;
+    std::shared_ptr<sysrepo::Session> Session;
+    std::shared_ptr<sysrepo::Subscribe> Subscribe;
+public:
+    NetConfAgent(){
+      
+    }
+    bool initSysrepo(){
+        Connection = std::make_shared<sysrepo::Connection>();
+        Session = std::make_shared<sysrepo::Session>(Connection);
+        Subscribe = std::make_shared<sysrepo::Subscribe>(Session);
+        
+    }
+    bool closeSysrepo(){
+        Subscribe.reset();
+        Session.reset();
+        Connection.reset();
+
+    }
     bool fetchDsts();
     bool syscrybeForModelChanges();
     bool registrOpenData();
     bool sybscribeForRpc();
+    bool notifySysrepo();
+    bool changeData();
 };
 
-void Registr_user(std::string &phone, std::string &user)
+void Registr_user(const std::string &phone, const std::string &user)
 {
     std::cout<<user<<" was register by " <<phone<<std::endl;
 }
 void Unregistr(){
     std::cout<<"You unregistrd your phone"<<std::endl;
 }
-void Calling_to_phone(std::string phone)
+void Calling_to_phone(const std::string phone)
 {
     std::cout<<"calling..."<<std::endl;
 }
@@ -36,38 +52,30 @@ void CallEnd(){
 void Reject(){
     std::cout<<"rejected"<<std::endl;
 }
-void ChangeName(std::string &name){
+void Change_Name(const std::string &name){
     std::cout<<"Your new name "<<name<<std::endl;
 }
-void cmd_call(std::vector<std::string> &s){
-    if(s[0]=="registr")
-    {
-        Registr_user(s[1],s[2]);
-    } 
-    if(s[0]=="call")
-    {
-        Calling_to_phone(s[1]);
-    } 
-    if(s[0]=="change")
-    {
-        ChangeName(s[1]);
-    } 
-    if(s[0]=="reject")
-    {
-        Reject();
-    }
-    if(s[0]=="Callend")
-    {
-        CallEnd();
-    }
-    if(s[0]=="unregistr")
-    {
-        Unregistr();
-    }
-    if(s[0]=="answer")
-    {
-        Answer();
-    }
+void cmd_call(std::vector<std::string> &s)
+{
+    std::map<std::string,std::function<void(std::string,std::string)>> commands;
+    commands["register"] =  [](const std::string &p1,const std::string &p2 ) { Registr_user(p1,p2);  };
+    commands["call"]     =  [](const std::string &p1,const std::string &p2 ) { Calling_to_phone(p1); };
+    commands["change"]   =  [](const std::string &p1,const std::string &p2 ) { Change_Name(p1);       };
+    commands["reject"]   =  [](const std::string &p1,const std::string &p2 ) { Reject(); };
+    commands["Callend"]  =  [](const std::string &p1,const std::string &p2 ) { CallEnd(); };
+    commands["unregistr"] =  [](const std::string &p1,const std::string &p2 ) { Unregistr(); };
+    commands["answer"] =  [](const std::string &p1,const std::string &p2 ) { Answer(); };
+
+    
+    if(s.size()==1)
+     commands[s[0]]("","");
+    if(s.size()==2)
+     commands[s[0]](s[1],"");
+    if(s.size()==3)
+     commands[s[0]](s[1],s[2]);
+     
+
+
 }
 
 int main()
