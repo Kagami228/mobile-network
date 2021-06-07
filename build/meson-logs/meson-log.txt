@@ -1,33 +1,33 @@
-Build started at 2021-06-02T19:29:04.374636
+Build started at 2021-06-07T14:22:53.556862
 Main binary: /usr/bin/python3
 Python system: Linux
 The Meson build system
 Version: 0.45.1
-Source dir: /home/sasha/src/mywork/mobile_network2
-Build dir: /home/sasha/src/mywork/mobile_network2/build
+Source dir: /home/sasha/src/myWork/mobile_network2
+Build dir: /home/sasha/src/myWork/mobile_network2/build
 Build type: native build
 Project name: SysrepoListener
 Sanity testing C compiler: cc
 Is cross compiler: False.
-Sanity check compiler command line: cc /home/sasha/src/mywork/mobile_network2/build/meson-private/sanitycheckc.c -o /home/sasha/src/mywork/mobile_network2/build/meson-private/sanitycheckc.exe
+Sanity check compiler command line: cc /home/sasha/src/myWork/mobile_network2/build/meson-private/sanitycheckc.c -o /home/sasha/src/myWork/mobile_network2/build/meson-private/sanitycheckc.exe
 Sanity check compile stdout:
 
 -----
 Sanity check compile stderr:
 
 -----
-Running test binary command: /home/sasha/src/mywork/mobile_network2/build/meson-private/sanitycheckc.exe
+Running test binary command: /home/sasha/src/myWork/mobile_network2/build/meson-private/sanitycheckc.exe
 Native C compiler: cc (gcc 7.5.0 "cc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0")
 Sanity testing C++ compiler: c++
 Is cross compiler: False.
-Sanity check compiler command line: c++ /home/sasha/src/mywork/mobile_network2/build/meson-private/sanitycheckcpp.cc -o /home/sasha/src/mywork/mobile_network2/build/meson-private/sanitycheckcpp.exe
+Sanity check compiler command line: c++ /home/sasha/src/myWork/mobile_network2/build/meson-private/sanitycheckcpp.cc -o /home/sasha/src/myWork/mobile_network2/build/meson-private/sanitycheckcpp.exe
 Sanity check compile stdout:
 
 -----
 Sanity check compile stderr:
 
 -----
-Running test binary command: /home/sasha/src/mywork/mobile_network2/build/meson-private/sanitycheckcpp.exe
+Running test binary command: /home/sasha/src/myWork/mobile_network2/build/meson-private/sanitycheckcpp.exe
 Native C++ compiler: c++ (gcc 7.5.0 "c++ (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0")
 Build machine cpu family: x86_64
 Build machine cpu: x86_64

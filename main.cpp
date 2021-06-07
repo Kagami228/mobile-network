@@ -23,7 +23,22 @@ public:
         Connection.reset();
         return 1;
     }
-    bool fetchDsts();
+    bool fetchData(){
+        try {
+            std::cout<<"fetchData started"<<std::endl;
+            const char *xpath = "/mobile-network:core/subscribers[number='001']/incomingNumber";
+            auto values = Session->get_items(xpath);
+            if (values == nullptr)
+            std::cout<<"values == nullptr"<<std::endl;
+                return 0;
+            std::cout<<"Values on xpath: "<<std::endl;  
+            for(unsigned int i = 0; i < values->val_cnt(); i++)
+                std::cout << values->val(i)->xpath() << std::endl;
+        } catch( const std::exception& e ) {
+            std::cout << e.what() << std::endl;
+        }
+        return 1;
+    }
     bool syscrybeForModelChanges();
     bool registrOpenData();
     bool sybscribeForRpc();
