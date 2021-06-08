@@ -6,7 +6,6 @@
 class NetConfAgent{
     std::shared_ptr<sysrepo::Connection> Connection;
     std::shared_ptr<sysrepo::Session> Session;
-    std::shared_ptr<sysrepo::Subscribe> Subscribe;
 public:
     NetConfAgent(){
       
@@ -14,17 +13,15 @@ public:
     bool initSysrepo(){
         Connection = std::make_shared<sysrepo::Connection>();
         Session = std::make_shared<sysrepo::Session>(Connection);
+        std::shared_ptr<sysrepo::Subscribe> Subscribe;
         Subscribe = std::make_shared<sysrepo::Subscribe>(Session);
         return 1;
     }
-    bool closeSysrepo(){
-        Subscribe.reset();
-        Session.reset();
-        Connection.reset();
-        return 1;
-    }
     
-    bool fetchDsts();
+    std::string fetchData(const std::string& s_xpath)
+    {
+    return Session->get_item(s_xpath.c_str())->to_string();
+    }
     bool syscrybeForModelChanges();
     bool registrOpenData();
     bool sybscribeForRpc();
