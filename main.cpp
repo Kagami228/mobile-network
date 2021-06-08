@@ -18,9 +18,15 @@ public:
         return 1;
     }
     
-    std::string fetchData(const std::string& s_xpath)
+    bool fetchData(const std::string& s_xpath)
     {
-    return Session->get_item(s_xpath.c_str())->to_string();
+        try{
+            Session->get_item(s_xpath.c_str())->to_string();
+            return true;
+        }catch(const std::exception &e){
+            std::cout<<e.what()<<std::endl;
+            return 0;
+        }
     }
     bool syscrybeForModelChanges();
     bool registrOpenData();
