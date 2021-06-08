@@ -107,5 +107,8 @@ int main()
 
         std::getline(std::cin,command);
     }
+    NetConfAgent n;
+    n.initSysrepo();
+    n.fetchData("./testmodel/sports/");
     return 0;
 }
