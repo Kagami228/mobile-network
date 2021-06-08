@@ -1,16 +1,18 @@
 #include <iostream>
 #include <vector>
+#include <string.h>
 #include "libsysrepocpp/headers/Session.hpp"
 
 
 class NetConfAgent{
     std::shared_ptr<sysrepo::Connection> Connection;
     std::shared_ptr<sysrepo::Session> Session;
+
 public:
-    NetConfAgent(){
-      
-    }
-    bool initSysrepo(){
+
+    NetConfAgent(){}
+    bool initSysrepo()
+    {
         Connection = std::make_shared<sysrepo::Connection>();
         Session = std::make_shared<sysrepo::Session>(Connection);
         std::shared_ptr<sysrepo::Subscribe> Subscribe;
@@ -18,14 +20,15 @@ public:
         return 1;
     }
     
-    bool fetchData(const std::string& s_xpath)
+    bool NetConfAgent::fetchData(const std::string& s_xpath, std::string& value) 
     {
-        try{
-            Session->get_item(s_xpath.c_str())->to_string();
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        try {
+            value = Session->get_item(s_xpath.c_str())->val_to_string();
             return true;
-        }catch(const std::exception &e){
-            std::cout<<e.what()<<std::endl;
-            return 0;
+        } catch (const std::exception& e) {
+            std::cout << e.what() << std::endl;
+            return false;
         }
     }
     bool syscrybeForModelChanges();
@@ -109,6 +112,8 @@ int main()
     }
     NetConfAgent n;
     n.initSysrepo();
-    n.fetchData("./testmodel/sports/");
+    std::string x_path="/testmodel/sports/person";
+    std::string s;
+    n.fetchData(x_path,s);
     return 0;
 }
