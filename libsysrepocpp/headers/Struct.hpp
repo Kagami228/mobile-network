@@ -26,9 +26,9 @@
 #include <iostream>
 #include <memory>
 
-#include "libsysrepocpp/headers/Sysrepo.hpp"
-#include "libsysrepocpp/headers/Internal.hpp"
-#include <libyangcpp/headers/Tree_Data.hpp>
+#include "Sysrepo.hpp"
+#include "Internal.hpp"
+#include "../../libyangcpp/headers/Tree_Data.hpp"
 
 #include "sysrepo.h"
 

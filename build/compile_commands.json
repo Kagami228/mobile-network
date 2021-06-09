@@ -201,7 +201,7 @@
   },
   {
     "directory": "/home/sasha/src/myWork/mobile_network2/build",
-    "command": "c++  -IListener@exe -I. -I.. -I../libsysrepocpp/source/../headers -I../libyangcpp/source/../headers -I../libyangextension/source/../models -I../libyangextension/source/../headers -I/usr/local/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -pthread -MD -MQ 'Listener@exe/main.cpp.o' -MF 'Listener@exe/main.cpp.o.d' -o 'Listener@exe/main.cpp.o' -c ../main.cpp",
-    "file": "../main.cpp"
+    "command": "c++  -Ilistener@exe -I. -I.. -I../libsysrepocpp/source/../headers -I../libyangcpp/source/../headers -I../libyangextension/source/../models -I../libyangextension/source/../headers -I/usr/local/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -pthread -MD -MQ 'listener@exe/listener.cpp.o' -MF 'listener@exe/listener.cpp.o.d' -o 'listener@exe/listener.cpp.o' -c ../listener.cpp",
+    "file": "../listener.cpp"
   }
 ]

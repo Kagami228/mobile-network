@@ -31,10 +31,10 @@
 
 //#include "libyangcpp/headers/Tree_Data.hpp"
 
-#include "libsysrepocpp/headers/Sysrepo.hpp"
-#include "libsysrepocpp/headers/Internal.hpp"
-#include "libsysrepocpp/headers/Struct.hpp"
-#include "libsysrepocpp/headers/Connection.hpp"
+#include "Sysrepo.hpp"
+#include "Internal.hpp"
+#include "Struct.hpp"
+#include "Connection.hpp"
 
 #include "sysrepo.h"
 

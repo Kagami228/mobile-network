@@ -65,8 +65,8 @@ libsysrepocpp_dep = declare_dependency (
 
 #add_project_arduments('LIBS=-ldl', language : 'c')
 
-exe = executable('Listener', 
-sources : 'main.cpp',
+exe = executable('listener', 
+sources : 'listener.cpp',
 dependencies : [sysrepo, libsysrepocpp_dep],
   install : true,
   link_args: ['-lpthread', '-ldl'],

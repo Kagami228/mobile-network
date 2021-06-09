@@ -27,7 +27,7 @@
 #include <memory>
 #include <stdexcept>
 
-#include "libsysrepocpp/headers/Internal.hpp"
+#include "Internal.hpp"
 
 #include "sysrepo.h"
 

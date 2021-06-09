@@ -245,11 +245,11 @@ build libsysrepocpp@sta/libsysrepocpp_source_Xpath.cpp.o: cpp_COMPILER .././libs
 build liblibsysrepocpp.a: STATIC_LINKER libsysrepocpp@sta/libsysrepocpp_source_Connection.cpp.o libsysrepocpp@sta/libsysrepocpp_source_Internal.cpp.o libsysrepocpp@sta/libsysrepocpp_source_Session.cpp.o libsysrepocpp@sta/libsysrepocpp_source_Struct.cpp.o libsysrepocpp@sta/libsysrepocpp_source_Sysrepo.cpp.o libsysrepocpp@sta/libsysrepocpp_source_Xpath.cpp.o
  LINK_ARGS = csrD
 
-build Listener@exe/main.cpp.o: cpp_COMPILER ../main.cpp
- DEPFILE = Listener@exe/main.cpp.o.d
- ARGS = -IListener@exe -I. -I.. -I../libsysrepocpp/source/../headers -I../libyangcpp/source/../headers -I../libyangextension/source/../models -I../libyangextension/source/../headers -I/usr/local/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -pthread
+build listener@exe/listener.cpp.o: cpp_COMPILER ../listener.cpp
+ DEPFILE = listener@exe/listener.cpp.o.d
+ ARGS = -Ilistener@exe -I. -I.. -I../libsysrepocpp/source/../headers -I../libyangcpp/source/../headers -I../libyangextension/source/../models -I../libyangextension/source/../headers -I/usr/local/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -pthread
 
-build Listener: cpp_LINKER Listener@exe/main.cpp.o | liblibsysrepocpp.a liblibyangcpp.a liblibyangextension.a
+build listener: cpp_LINKER listener@exe/listener.cpp.o | liblibyangcpp.a liblibsysrepocpp.a liblibyangextension.a
  LINK_ARGS = -Wl,--no-undefined -Wl,--as-needed -Wl,--start-group liblibsysrepocpp.a liblibyangcpp.a liblibyangextension.a -lpthread -ldl -L/usr/local/lib -lsysrepo -lpcre -Wl,--end-group
 
 # Test rules
@@ -298,7 +298,7 @@ build meson-uninstall: CUSTOM_COMMAND PHONY
 
 build uninstall: phony meson-uninstall
 
-build all: phony liblibyangextension.a liblibyangcpp.a liblibsysrepocpp.a Listener
+build all: phony liblibyangextension.a liblibyangcpp.a liblibsysrepocpp.a listener
 
 default all
 
