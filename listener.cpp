@@ -31,19 +31,20 @@ void Change_Name(const std::string &name)
 
 struct exit_exception : std::exception
 {
+    std::string  _mess;
     exit_exception():_mess("exit from programm") {
-
     }
     const char* what() const noexcept override{
         return  _mess.c_str();
     }
-    std::string _mess;
 };
+
+
 
 void cmd_call(std::vector<std::string> &s)
 {
-    using commandsMap = std::map<std::string, std::function<void(std::string, std::string)>>;
 
+    using commandsMap = std::map<std::string, std::function<void(std::string, std::string)>>;
     commandsMap commands;
     commands["register"] = [](const std::string &p1, const std::string &p2)
     { Registr_user(p1, p2); };
@@ -74,48 +75,81 @@ void cmd_call(std::vector<std::string> &s)
         commands[s[0]](s[1], s[2]);
 }
 
+struct is_delimiter
+{
+    is_delimiter(std::string delimiters):_delimiters(delimiters){
+
+    }
+    bool operator ()(char c){
+        bool res=false;
+        for(auto cc:_delimiters)
+        {
+            res = c==cc;
+            if(res)
+                break;
+        }
+        return res;
+    }
+    std::string _delimiters;
+};
+
+
+std::vector<std::string> split(std::string str, const std::string & delimiters)
+{
+    std::vector<std::string> result;
+
+    //is_delimiter is_del(delimeters);
+    auto is_del = [delimiters](char c){
+        bool res=false;
+        for(auto cc : delimiters)
+        {
+            res = c==cc;
+            if(res)
+                break;
+        }
+        return res;
+    };
+
+    for(int i=0; i< str.length();i++){
+        if(is_del(str[i])){
+            result.push_back(str.substr(0,i));
+            str.erase(0,i);
+        }
+    }
+    if(result.empty())
+        result.push_back(str);
+    return result;
+}
 
 
 int main()
 {
-    std::string delimiter = " ";
     std::cout<<"sdfsdfdsfdsfds";
-
+    NetConfAgent n;
+    //n.initSysrepo();
     do
     {
         std::vector<std::string> cmd;
-        size_t pos = 0;
-        std::string token;
-        std::string command;
-        std::getline(std::cin, command);
- 
-        int i = 0;
-        while ((pos = command.find(delimiter)) != std::string::npos - 1)
-        {
-            token = command.substr(0, pos);
-            cmd.push_back(token);
-            //std::cout << token << std::endl;
-            command = command.erase(0, pos + delimiter.length());
 
-            if (pos == std::string::npos)
-            {
-                break;
-            }
-        }
+        std::string command;
+        size_t pos = 0;
+
+        std::getline(std::cin, command);
+        std::cout << "token" << std::endl;
+        int i = 0;
+        cmd= split(command," ");
         try 
         {
-            cmd_call(cmd);
+             if(!cmd.empty())
+                cmd_call(cmd);
         }
-        catch (const std::exception &  e)
+        catch (const exit_exception &  e)
         {
-            std::cout<<"sdfsdfdsfdsfds";
-            std::cout<<e.what();
+            
+            std::cout<<e.what()<<std::endl;
             break;
         }
     }while(true);
-    
-    NetConfAgent n;
-    n.initSysrepo();
-    n.fetchData("./testmodel/sports/");
+  //  n.fetchData("./testmodel/sports/");
     return 0;
 }

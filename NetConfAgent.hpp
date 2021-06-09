@@ -6,6 +6,7 @@ class NetConfAgent
 {
     std::shared_ptr<sysrepo::Connection> Connection;
     std::shared_ptr<sysrepo::Session> Session;
+    std::shared_ptr<sysrepo::Subscribe> Subscribe;
 
 public:
     NetConfAgent()
@@ -15,7 +16,6 @@ public:
     {
         Connection = std::make_shared<sysrepo::Connection>();
         Session = std::make_shared<sysrepo::Session>(Connection);
-        std::shared_ptr<sysrepo::Subscribe> Subscribe;
         Subscribe = std::make_shared<sysrepo::Subscribe>(Session);
         std::cout<<"Session began"<<std::endl;
 
