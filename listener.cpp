@@ -1,4 +1,8 @@
-#include "NetConfAgent.hpp"
+#include "header/NetConfAgent.hpp"
+#include <thread>
+#include <functional>
+
+using namespace NetConf;
 
 void Registr_user(const std::string &phone, const std::string &user)
 {
@@ -28,7 +32,6 @@ void Change_Name(const std::string &name)
 {
     std::cout << "Your new name " << name << std::endl;
 }
-
 struct exit_exception : std::exception
 {
     std::string  _mess;
@@ -38,9 +41,6 @@ struct exit_exception : std::exception
         return  _mess.c_str();
     }
 };
-
-
-
 void cmd_call(std::vector<std::string> &s)
 {
 
@@ -74,25 +74,22 @@ void cmd_call(std::vector<std::string> &s)
     if (s.size() == 3)
         commands[s[0]](s[1], s[2]);
 }
-
-struct is_delimiter
-{
-    is_delimiter(std::string delimiters):_delimiters(delimiters){
-
-    }
-    bool operator ()(char c){
-        bool res=false;
-        for(auto cc:_delimiters)
-        {
-            res = c==cc;
-            if(res)
-                break;
-        }
-        return res;
-    }
-    std::string _delimiters;
-};
-
+// struct is_delimiter
+// {
+//     is_delimiter(std::string delimiters):_delimiters(delimiters){
+//     }
+//     bool operator ()(char c){
+//         bool res=false;
+//         for(auto cc:_delimiters)
+//         {
+//             res = c==cc;
+//             if(res)
+//                 break;
+//         }
+//         return res;
+//     }
+//     std::string _delimiters;
+// };
 
 std::vector<std::string> split(std::string str, const std::string & delimiters)
 {
@@ -110,6 +107,7 @@ std::vector<std::string> split(std::string str, const std::string & delimiters)
         return res;
     };
 
+
     for(int i=0; i< str.length();i++){
         if(is_del(str[i])){
             result.push_back(str.substr(0,i));
@@ -125,8 +123,11 @@ std::vector<std::string> split(std::string str, const std::string & delimiters)
 int main()
 {
     std::cout<<"sdfsdfdsfdsfds";
-    NetConfAgent n;
-    //n.initSysrepo();
+    NetConfAgent n_C_A;
+    n_C_A.initSysrepo();
+    n_C_A.subscribeForModelChanges("mobile-network");
+    //std::thread thRead(&NetConfAgent::subscribeForModelChanges, n_C_A);
+
     do
     {
         std::vector<std::string> cmd;
@@ -150,6 +151,6 @@ int main()
             break;
         }
     }while(true);
-  //  n.fetchData("./testmodel/sports/");
+    
     return 0;
 }
