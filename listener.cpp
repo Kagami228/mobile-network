@@ -4,7 +4,7 @@
 
 using namespace Netconfagent;
 using namespace Mobileclient;
-
+ 
 void Registr_user(const std::string &phone, const std::string &user)
 {
     std::cout << user << " was register by " << phone << std::endl;
