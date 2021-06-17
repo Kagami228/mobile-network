@@ -17,10 +17,10 @@ namespace Mobileclient
     {
         _number = number;
         
-        std::string _xpathForChangeState = "/mobile-network:core/subscribers[number='" + number + "']/state";
-        std::string _xpathForChangeNum = "/mobile-network:core/subscribers[number='" + number + "']/number";
-        std::string _xpathForSubscribe = "/mobile-network:core/subscribers[number='" + number + "']";
-        std::string _xpathForFetch = "/mobile-network:core/subscribers[number='" + number + "']";
+        std::string _xpathForChangeState = "/mobile-network:core/subscriber[number='" + number + "']/state";
+        std::string _xpathForChangeNum = "/mobile-network:core/subscriber[number='" + number + "']/number";
+        std::string _xpathForSubscribe = "/mobile-network:core/subscriber[number='" + number + "']";
+        std::string _xpathForFetch = "/mobile-network:core/subscriber[number='" + number + "']";
 
 
         agent.initSysrepo();
@@ -48,18 +48,18 @@ namespace Mobileclient
     	    std::cout << i.first << " : " << i.second << std::endl;
     	}
     };
-    bool MobileClient::handleOperData(std::string& n, std::string& xPath) const
-    {
-        n = _name;
-        xPath = "/mobile-network:core/subscribers[number='" + _number + "']/userName";
-        return 1;
-    }
-    bool MobileClient::makeCall(std::string numberphone)
-    {
-        std::string _xpathForChangeIncNum = "/mobile-network:core/subscribers[number='" + numberphone + "']/incomingNumber";
-        agent.changeData(_xpathForChangeIncNum, _number);
-        return 1;
-    }
+    // bool MobileClient::handleOperData(std::string& n, std::string& xPath) const
+    // {
+    //     n = _name;
+    //     xPath = "/mobile-network:core/subscriber[number='" + _number + "']/userName";
+    //     return 1;
+    // }
+    // bool MobileClient::makeCall(std::string numberphone)
+    // {
+    //     std::string _xpathForChangeIncNum = "/mobile-network:core/subscriber[number='" + numberphone + "']/incomingNumber";
+    //     agent.changeData(_xpathForChangeIncNum, _number);
+    //     return 1;
+    // }
     bool MobileClient::setName(std::string n)
     {
         _name = n;
