@@ -1,0 +1,42 @@
+Build started at 2021-06-17T23:13:13.934454
+Main binary: /usr/bin/python3
+Python system: Linux
+The Meson build system
+Version: 0.45.1
+Source dir: /home/sasha/src/myWork/mobile_network2
+Build dir: /home/sasha/src/myWork/mobile_network2/builddir
+Build type: native build
+Project name: SysrepoListener
+Sanity testing C compiler: cc
+Is cross compiler: False.
+Sanity check compiler command line: cc /home/sasha/src/myWork/mobile_network2/builddir/meson-private/sanitycheckc.c -o /home/sasha/src/myWork/mobile_network2/builddir/meson-private/sanitycheckc.exe
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command: /home/sasha/src/myWork/mobile_network2/builddir/meson-private/sanitycheckc.exe
+Native C compiler: cc (gcc 7.5.0 "cc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0")
+Sanity testing C++ compiler: c++
+Is cross compiler: False.
+Sanity check compiler command line: c++ /home/sasha/src/myWork/mobile_network2/builddir/meson-private/sanitycheckcpp.cc -o /home/sasha/src/myWork/mobile_network2/builddir/meson-private/sanitycheckcpp.exe
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command: /home/sasha/src/myWork/mobile_network2/builddir/meson-private/sanitycheckcpp.exe
+Native C++ compiler: c++ (gcc 7.5.0 "c++ (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0")
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Found pkg-config: /usr/bin/pkg-config (0.29.1)
+Determining dependency 'libpcre' with pkg-config executable '/usr/bin/pkg-config'
+Native dependency libpcre found: YES 8.39
+Determining dependency 'sysrepo' with pkg-config executable '/usr/bin/pkg-config'
+Native dependency sysrepo found: YES 1.4.122
+Determining dependency 'libyang' with pkg-config executable '/usr/bin/pkg-config'
+Native dependency libyang found: YES 1.0.225
+
+source/meson.build:1:0: ERROR: Unknown function "incude_directories".

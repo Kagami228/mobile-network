@@ -1,8 +1,9 @@
-#include "header/NetConfAgent.hpp"
+#include "includes/NetConfAgent.hpp"
 #include <thread>
 #include <functional>
 
-using namespace NetConf;
+using namespace Netconfagent;
+using namespace Mobileclient;
 
 void Registr_user(const std::string &phone, const std::string &user)
 {
@@ -90,7 +91,6 @@ void cmd_call(std::vector<std::string> &s)
 //     }
 //     std::string _delimiters;
 // };
-
 std::vector<std::string> split(std::string str, const std::string & delimiters)
 {
     std::vector<std::string> result;
@@ -119,15 +119,12 @@ std::vector<std::string> split(std::string str, const std::string & delimiters)
     return result;
 }
 
-
 int main()
 {
     std::cout<<"sdfsdfdsfdsfds";
     NetConfAgent n_C_A;
+    //MobileClient m_b;
     n_C_A.initSysrepo();
-    n_C_A.subscribeForModelChanges("mobile-network");
-    //std::thread thRead(&NetConfAgent::subscribeForModelChanges, n_C_A);
-
     do
     {
         std::vector<std::string> cmd;
