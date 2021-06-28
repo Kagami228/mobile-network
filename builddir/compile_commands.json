@@ -1,0 +1,217 @@
+[
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "c++  -INetConf@sta -I. -I.. -I../source/../libsysrepocpp/headers -I../source/../includes -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -fPIC -MD -MQ 'NetConf@sta/source_NetConfAgent.cpp.o' -MF 'NetConf@sta/source_NetConfAgent.cpp.o.d' -o 'NetConf@sta/source_NetConfAgent.cpp.o' -c ../source/NetConfAgent.cpp",
+    "file": "../source/NetConfAgent.cpp"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "c++  -INetConf@sta -I. -I.. -I../source/../libsysrepocpp/headers -I../source/../includes -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -fPIC -MD -MQ 'NetConf@sta/source_MobileClient.cpp.o' -MF 'NetConf@sta/source_MobileClient.cpp.o.d' -o 'NetConf@sta/source_MobileClient.cpp.o' -c ../source/MobileClient.cpp",
+    "file": "../source/MobileClient.cpp"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_common.c.o' -MF 'libyangextension@sta/libyangextension_source_common.c.o.d' -o 'libyangextension@sta/libyangextension_source_common.c.o' -c ../libyangextension/source/common.c",
+    "file": "../libyangextension/source/common.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_context.c.o' -MF 'libyangextension@sta/libyangextension_source_context.c.o.d' -o 'libyangextension@sta/libyangextension_source_context.c.o' -c ../libyangextension/source/context.c",
+    "file": "../libyangextension/source/context.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_hash_table.c.o' -MF 'libyangextension@sta/libyangextension_source_hash_table.c.o.d' -o 'libyangextension@sta/libyangextension_source_hash_table.c.o' -c ../libyangextension/source/hash_table.c",
+    "file": "../libyangextension/source/hash_table.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_log.c.o' -MF 'libyangextension@sta/libyangextension_source_log.c.o.d' -o 'libyangextension@sta/libyangextension_source_log.c.o' -c ../libyangextension/source/log.c",
+    "file": "../libyangextension/source/log.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_parser_json.c.o' -MF 'libyangextension@sta/libyangextension_source_parser_json.c.o.d' -o 'libyangextension@sta/libyangextension_source_parser_json.c.o' -c ../libyangextension/source/parser_json.c",
+    "file": "../libyangextension/source/parser_json.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_parser_lyb.c.o' -MF 'libyangextension@sta/libyangextension_source_parser_lyb.c.o.d' -o 'libyangextension@sta/libyangextension_source_parser_lyb.c.o' -c ../libyangextension/source/parser_lyb.c",
+    "file": "../libyangextension/source/parser_lyb.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_parser_xml.c.o' -MF 'libyangextension@sta/libyangextension_source_parser_xml.c.o.d' -o 'libyangextension@sta/libyangextension_source_parser_xml.c.o' -c ../libyangextension/source/parser_xml.c",
+    "file": "../libyangextension/source/parser_xml.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_parser_yang_bis.c.o' -MF 'libyangextension@sta/libyangextension_source_parser_yang_bis.c.o.d' -o 'libyangextension@sta/libyangextension_source_parser_yang_bis.c.o' -c ../libyangextension/source/parser_yang_bis.c",
+    "file": "../libyangextension/source/parser_yang_bis.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_parser_yang_lex.c.o' -MF 'libyangextension@sta/libyangextension_source_parser_yang_lex.c.o.d' -o 'libyangextension@sta/libyangextension_source_parser_yang_lex.c.o' -c ../libyangextension/source/parser_yang_lex.c",
+    "file": "../libyangextension/source/parser_yang_lex.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_parser_yang.c.o' -MF 'libyangextension@sta/libyangextension_source_parser_yang.c.o.d' -o 'libyangextension@sta/libyangextension_source_parser_yang.c.o' -c ../libyangextension/source/parser_yang.c",
+    "file": "../libyangextension/source/parser_yang.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_parser_yin.c.o' -MF 'libyangextension@sta/libyangextension_source_parser_yin.c.o.d' -o 'libyangextension@sta/libyangextension_source_parser_yin.c.o' -c ../libyangextension/source/parser_yin.c",
+    "file": "../libyangextension/source/parser_yin.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_parser.c.o' -MF 'libyangextension@sta/libyangextension_source_parser.c.o.d' -o 'libyangextension@sta/libyangextension_source_parser.c.o' -c ../libyangextension/source/parser.c",
+    "file": "../libyangextension/source/parser.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_plugins.c.o' -MF 'libyangextension@sta/libyangextension_source_plugins.c.o.d' -o 'libyangextension@sta/libyangextension_source_plugins.c.o' -c ../libyangextension/source/plugins.c",
+    "file": "../libyangextension/source/plugins.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_printer_info.c.o' -MF 'libyangextension@sta/libyangextension_source_printer_info.c.o.d' -o 'libyangextension@sta/libyangextension_source_printer_info.c.o' -c ../libyangextension/source/printer_info.c",
+    "file": "../libyangextension/source/printer_info.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_printer_json_schema.c.o' -MF 'libyangextension@sta/libyangextension_source_printer_json_schema.c.o.d' -o 'libyangextension@sta/libyangextension_source_printer_json_schema.c.o' -c ../libyangextension/source/printer_json_schema.c",
+    "file": "../libyangextension/source/printer_json_schema.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_printer_json.c.o' -MF 'libyangextension@sta/libyangextension_source_printer_json.c.o.d' -o 'libyangextension@sta/libyangextension_source_printer_json.c.o' -c ../libyangextension/source/printer_json.c",
+    "file": "../libyangextension/source/printer_json.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_printer_lyb.c.o' -MF 'libyangextension@sta/libyangextension_source_printer_lyb.c.o.d' -o 'libyangextension@sta/libyangextension_source_printer_lyb.c.o' -c ../libyangextension/source/printer_lyb.c",
+    "file": "../libyangextension/source/printer_lyb.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_printer_tree.c.o' -MF 'libyangextension@sta/libyangextension_source_printer_tree.c.o.d' -o 'libyangextension@sta/libyangextension_source_printer_tree.c.o' -c ../libyangextension/source/printer_tree.c",
+    "file": "../libyangextension/source/printer_tree.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_printer_xml.c.o' -MF 'libyangextension@sta/libyangextension_source_printer_xml.c.o.d' -o 'libyangextension@sta/libyangextension_source_printer_xml.c.o' -c ../libyangextension/source/printer_xml.c",
+    "file": "../libyangextension/source/printer_xml.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_printer_yang.c.o' -MF 'libyangextension@sta/libyangextension_source_printer_yang.c.o.d' -o 'libyangextension@sta/libyangextension_source_printer_yang.c.o' -c ../libyangextension/source/printer_yang.c",
+    "file": "../libyangextension/source/printer_yang.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_printer_yin.c.o' -MF 'libyangextension@sta/libyangextension_source_printer_yin.c.o.d' -o 'libyangextension@sta/libyangextension_source_printer_yin.c.o' -c ../libyangextension/source/printer_yin.c",
+    "file": "../libyangextension/source/printer_yin.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_printer.c.o' -MF 'libyangextension@sta/libyangextension_source_printer.c.o.d' -o 'libyangextension@sta/libyangextension_source_printer.c.o' -c ../libyangextension/source/printer.c",
+    "file": "../libyangextension/source/printer.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_resolve.c.o' -MF 'libyangextension@sta/libyangextension_source_resolve.c.o.d' -o 'libyangextension@sta/libyangextension_source_resolve.c.o' -c ../libyangextension/source/resolve.c",
+    "file": "../libyangextension/source/resolve.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_tree_data.c.o' -MF 'libyangextension@sta/libyangextension_source_tree_data.c.o.d' -o 'libyangextension@sta/libyangextension_source_tree_data.c.o' -c ../libyangextension/source/tree_data.c",
+    "file": "../libyangextension/source/tree_data.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_tree_schema.c.o' -MF 'libyangextension@sta/libyangextension_source_tree_schema.c.o.d' -o 'libyangextension@sta/libyangextension_source_tree_schema.c.o' -c ../libyangextension/source/tree_schema.c",
+    "file": "../libyangextension/source/tree_schema.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_validation.c.o' -MF 'libyangextension@sta/libyangextension_source_validation.c.o.d' -o 'libyangextension@sta/libyangextension_source_validation.c.o' -c ../libyangextension/source/validation.c",
+    "file": "../libyangextension/source/validation.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_xml.c.o' -MF 'libyangextension@sta/libyangextension_source_xml.c.o.d' -o 'libyangextension@sta/libyangextension_source_xml.c.o' -c ../libyangextension/source/xml.c",
+    "file": "../libyangextension/source/xml.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_xpath.c.o' -MF 'libyangextension@sta/libyangextension_source_xpath.c.o.d' -o 'libyangextension@sta/libyangextension_source_xpath.c.o' -c ../libyangextension/source/xpath.c",
+    "file": "../libyangextension/source/xpath.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "cc  -Ilibyangextension@sta -I. -I.. -I../libyangextension/source/../models -I../libyangextension/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -O0 -g -fPIC -MD -MQ 'libyangextension@sta/libyangextension_source_yang_types.c.o' -MF 'libyangextension@sta/libyangextension_source_yang_types.c.o.d' -o 'libyangextension@sta/libyangextension_source_yang_types.c.o' -c ../libyangextension/source/yang_types.c",
+    "file": "../libyangextension/source/yang_types.c"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "c++  -Ilibyangcpp@sta -I. -I.. -I../libyangcpp/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -fPIC -MD -MQ 'libyangcpp@sta/libyangcpp_source_Internal.cpp.o' -MF 'libyangcpp@sta/libyangcpp_source_Internal.cpp.o.d' -o 'libyangcpp@sta/libyangcpp_source_Internal.cpp.o' -c ../libyangcpp/source/Internal.cpp",
+    "file": "../libyangcpp/source/Internal.cpp"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "c++  -Ilibyangcpp@sta -I. -I.. -I../libyangcpp/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -fPIC -MD -MQ 'libyangcpp@sta/libyangcpp_source_Libyang.cpp.o' -MF 'libyangcpp@sta/libyangcpp_source_Libyang.cpp.o.d' -o 'libyangcpp@sta/libyangcpp_source_Libyang.cpp.o' -c ../libyangcpp/source/Libyang.cpp",
+    "file": "../libyangcpp/source/Libyang.cpp"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "c++  -Ilibyangcpp@sta -I. -I.. -I../libyangcpp/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -fPIC -MD -MQ 'libyangcpp@sta/libyangcpp_source_Tree_Data.cpp.o' -MF 'libyangcpp@sta/libyangcpp_source_Tree_Data.cpp.o.d' -o 'libyangcpp@sta/libyangcpp_source_Tree_Data.cpp.o' -c ../libyangcpp/source/Tree_Data.cpp",
+    "file": "../libyangcpp/source/Tree_Data.cpp"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "c++  -Ilibyangcpp@sta -I. -I.. -I../libyangcpp/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -fPIC -MD -MQ 'libyangcpp@sta/libyangcpp_source_Tree_Schema.cpp.o' -MF 'libyangcpp@sta/libyangcpp_source_Tree_Schema.cpp.o.d' -o 'libyangcpp@sta/libyangcpp_source_Tree_Schema.cpp.o' -c ../libyangcpp/source/Tree_Schema.cpp",
+    "file": "../libyangcpp/source/Tree_Schema.cpp"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "c++  -Ilibyangcpp@sta -I. -I.. -I../libyangcpp/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -fPIC -MD -MQ 'libyangcpp@sta/libyangcpp_source_Xml.cpp.o' -MF 'libyangcpp@sta/libyangcpp_source_Xml.cpp.o.d' -o 'libyangcpp@sta/libyangcpp_source_Xml.cpp.o' -c ../libyangcpp/source/Xml.cpp",
+    "file": "../libyangcpp/source/Xml.cpp"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "c++  -Ilibsysrepocpp@sta -I. -I.. -I../libsysrepocpp/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -fPIC -MD -MQ 'libsysrepocpp@sta/libsysrepocpp_source_Connection.cpp.o' -MF 'libsysrepocpp@sta/libsysrepocpp_source_Connection.cpp.o.d' -o 'libsysrepocpp@sta/libsysrepocpp_source_Connection.cpp.o' -c ../libsysrepocpp/source/Connection.cpp",
+    "file": "../libsysrepocpp/source/Connection.cpp"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "c++  -Ilibsysrepocpp@sta -I. -I.. -I../libsysrepocpp/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -fPIC -MD -MQ 'libsysrepocpp@sta/libsysrepocpp_source_Internal.cpp.o' -MF 'libsysrepocpp@sta/libsysrepocpp_source_Internal.cpp.o.d' -o 'libsysrepocpp@sta/libsysrepocpp_source_Internal.cpp.o' -c ../libsysrepocpp/source/Internal.cpp",
+    "file": "../libsysrepocpp/source/Internal.cpp"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "c++  -Ilibsysrepocpp@sta -I. -I.. -I../libsysrepocpp/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -fPIC -MD -MQ 'libsysrepocpp@sta/libsysrepocpp_source_Session.cpp.o' -MF 'libsysrepocpp@sta/libsysrepocpp_source_Session.cpp.o.d' -o 'libsysrepocpp@sta/libsysrepocpp_source_Session.cpp.o' -c ../libsysrepocpp/source/Session.cpp",
+    "file": "../libsysrepocpp/source/Session.cpp"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "c++  -Ilibsysrepocpp@sta -I. -I.. -I../libsysrepocpp/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -fPIC -MD -MQ 'libsysrepocpp@sta/libsysrepocpp_source_Struct.cpp.o' -MF 'libsysrepocpp@sta/libsysrepocpp_source_Struct.cpp.o.d' -o 'libsysrepocpp@sta/libsysrepocpp_source_Struct.cpp.o' -c ../libsysrepocpp/source/Struct.cpp",
+    "file": "../libsysrepocpp/source/Struct.cpp"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "c++  -Ilibsysrepocpp@sta -I. -I.. -I../libsysrepocpp/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -fPIC -MD -MQ 'libsysrepocpp@sta/libsysrepocpp_source_Sysrepo.cpp.o' -MF 'libsysrepocpp@sta/libsysrepocpp_source_Sysrepo.cpp.o.d' -o 'libsysrepocpp@sta/libsysrepocpp_source_Sysrepo.cpp.o' -c ../libsysrepocpp/source/Sysrepo.cpp",
+    "file": "../libsysrepocpp/source/Sysrepo.cpp"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "c++  -Ilibsysrepocpp@sta -I. -I.. -I../libsysrepocpp/source/../headers -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -fPIC -MD -MQ 'libsysrepocpp@sta/libsysrepocpp_source_Xpath.cpp.o' -MF 'libsysrepocpp@sta/libsysrepocpp_source_Xpath.cpp.o.d' -o 'libsysrepocpp@sta/libsysrepocpp_source_Xpath.cpp.o' -c ../libsysrepocpp/source/Xpath.cpp",
+    "file": "../libsysrepocpp/source/Xpath.cpp"
+  },
+  {
+    "directory": "/home/sasha/src/myWork/mobile_network2/builddir",
+    "command": "c++  -Ilistener@exe -I. -I.. -I../libsysrepocpp/source/../headers -I../libyangcpp/source/../headers -I../libyangextension/source/../models -I../libyangextension/source/../headers -I../source/../libsysrepocpp/headers -I../source/../includes -I/usr/local/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -std=c++17 -O0 -g -pthread -MD -MQ 'listener@exe/listener.cpp.o' -MF 'listener@exe/listener.cpp.o.d' -o 'listener@exe/listener.cpp.o' -c ../listener.cpp",
+    "file": "../listener.cpp"
+  }
+]

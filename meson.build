@@ -16,12 +16,12 @@ subdir ('source')
 
 NetConf_sl=static_library(
   'NetConf',
-  sources:NetConf_src,
-  include_directories:NetConf_inc
+  sources:Netconf_src,
+  include_directories:Netconf_inc
 )
 NetConf_dep=declare_dependency(
   link_with:[NetConf_sl],
-  include_directories:NetConf_inc
+  include_directories:Netconf_inc
 )
 
 libyangextension = static_library(
@@ -77,7 +77,7 @@ libsysrepocpp_dep = declare_dependency (
 
 exe = executable('listener', 
 sources : 'listener.cpp',
-dependencies : [sysrepo, libsysrepocpp_dep,NetConf_dep],
+dependencies : [sysrepo, libsysrepocpp_dep, NetConf_dep],
   install : true,
   link_args: ['-lpthread', '-ldl'],
   cpp_args : '-pthread')
