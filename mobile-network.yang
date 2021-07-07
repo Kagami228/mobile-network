@@ -1,6 +1,5 @@
 module mobile-network {
     namespace "ns:mobNetwork";
-
     prefix mobnet;
 
 container core

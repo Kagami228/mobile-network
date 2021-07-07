@@ -83,12 +83,12 @@ namespace Netconfagent
 
     bool NetConfAgent::changeData(std::string _xpath, std::string _newValue)
     {
-        const char *xpath = _xpath.c_str();
+        const char *x_path = _xpath.c_str();
         const char *newValue = _newValue.c_str();
         try 
         {
             auto value = std::make_shared<sysrepo::Val>(newValue);
-            Session->set_item(xpath, value);
+            Session->set_item(x_path, value);
             Session->apply_changes();
         } 
         catch( const std::exception& e ) 
@@ -96,7 +96,6 @@ namespace Netconfagent
             std::cout << e.what() << std::endl;
             return 0;
         }
-        std::cout << "Data changed" << std::endl;
         return 1;
     }
 

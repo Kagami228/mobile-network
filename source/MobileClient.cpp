@@ -28,9 +28,10 @@ namespace Mobileclient
 //             std::string incNumber(std::string arg);
 //             std::string state(std::string arg);
    
-    bool MobileClient::registerClient(std::string number, std::string state)
+    bool MobileClient::registerClient(std::string number, std::string state,std::string name)
     {
         _number = number;
+        _name=name;
         agent = std::make_unique<NetConfAgent>();
         std::string xpathMyState = MobileClient::state(_number);
         std::string xpathMyNum = MobileClient::number(_number);
@@ -44,6 +45,7 @@ namespace Mobileclient
         }
         if(_name != "")
         {
+            std::cout<<xpathMyState<<"    "<<state<<std::endl;
             agent->changeData(xpathMyState, state);
             agent->changeData(xpathMyNum, number);
             agent->registerOperData(*this, xpathForSubscribe);

@@ -22,7 +22,7 @@ namespace Mobileclient
     std::string _incomingNumber;
         
         public:
-            bool registerClient(std::string number, std::string state);
+            bool registerClient(std::string number, std::string state,std::string name);
             void handleModuleChange(std::map < std::string, std::string >& mapFetchData);
             void handleOperData(std::string& name, std::string& xPath) const;
             bool handleRpc();

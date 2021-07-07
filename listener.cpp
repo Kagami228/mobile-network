@@ -7,40 +7,33 @@ using namespace Netconfagent;
 using namespace Mobileclient;
 MobileClient client;
 
-void Registr_user(const std::string &phone, const std::string &user)
+void Registr_user(const std::string phone, const std::string user)
 {
-    client.registerClient(phone, "idle");
-    std::cout << user << " was register by " << phone << std::endl;
+    client.registerClient(phone, "idle",user);
 }
 void Unregistr()
 {
     client.unRegisterClient();
-    std::cout << "You unregistrd your phone" << std::endl;
 }
 void Calling_to_phone(const std::string phone)
 {
     client.makeCall(phone);
-    std::cout << "calling..." << std::endl;
 }
 void Answer()
 {
     client.answerCall();
-    std::cout << "conversation" << std::endl;
 }
 void CallEnd()
 {
     client.endCall();
-    std::cout << "callEnd" << std::endl;
 }
 void Reject()
 {
     client.rejectCall();
-    std::cout << "rejected" << std::endl;
 }
 void Change_Name(const std::string &name)
 {
     client.setName(name);
-    std::cout << "Your new name " << name << std::endl;
 }
 struct exit_exception : std::exception
 {
@@ -102,14 +95,15 @@ std::vector<std::string> split(std::string str, const std::string & delimiters)
     };
 
 
-    for(int i=0; i< str.length();i++){
+    for(int i=0; i<= str.length();i++){
         if(is_del(str[i])){
             result.push_back(str.substr(0,i));
-            str.erase(0,i);
+            str.erase(0,i+1);
+            i=0;
         }
     }
-    if(result.empty())
-        result.push_back(str);
+   // if(result.empty())
+     result.push_back(str);
     return result;
 }
 
