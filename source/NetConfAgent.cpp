@@ -1,6 +1,7 @@
 #pragma once
 #include "MobileClient.hpp"
 #include "NetConfAgent.hpp"
+
 using namespace Mobileclient;
 using namespace sysrepo;
 namespace
@@ -43,29 +44,29 @@ namespace Netconfagent
         }
         return 1;
     }
-    bool NetConfAgent::subscribeForModelChanges(MobileClient& client, std::string& xpathForFetch)
+    bool NetConfAgent::subscribeForModelChanges(Mobileclient::MobileClient& client, std::string& xpathForFetch)
     {
         const char *module_name = "mobile-network";
 
-            auto cb = [=] (sysrepo::S_Session Session, const char *module_name, const char *xpath, sr_event_t event,
-                uint32_t request_id) {
+            auto cb = [=, &client] (sysrepo::S_Session Session, const char *module_name, const char *xpath, sr_event_t event,
+                uint32_t request_id) mutable {
                 char change_path[MAX_LEN];
-                if(ev_to_str(event) == "done"){
-                    std::cout << " Notification "<<std::endl;
-                    std::map < std::string, std::string > mapFetchData;
-                    fetchData(xpathForFetch, mapFetchData);
-                    client.handleModuleChange(mapFetchData);
-                }
+                    std::map < std::string, std::string > FetchData;
+                    if(ev_to_str(event) == "done")
+                    {
+                    fetchData(xpathForFetch, FetchData);
+                    client.handleModuleChange(FetchData);
+                    }
                 return SR_ERR_OK;
             };
             Subscribe->module_change_subscribe(module_name, cb);
-        return 1;
+        return true;
     }
-    bool NetConfAgent::registerOperData(MobileClient& client, std::string xpathForSubscribe)
+    bool NetConfAgent::registerOperData(Mobileclient::MobileClient& client, std::string xpathForSubscribe)
     {
         const char *module_name = "mobile-network";
         const char *xpathForSubscribePtr = xpathForSubscribe.c_str();
-        auto cb2 = [client] (sysrepo::S_Session Session, const char *module_name, const char *path, const char *request_xpath,
+        auto cb2 = [=,&client] (sysrepo::S_Session Session, const char *module_name, const char *path, const char *request_xpath,
             uint32_t request_id, libyang::S_Data_Node &parent) {
             std::cout << path <<"Data" << std::endl;
             std::string name, xPath;
