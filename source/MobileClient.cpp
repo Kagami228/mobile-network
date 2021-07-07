@@ -10,8 +10,10 @@ namespace Mobileclient
     std::string outcomingNumber;
     std::string myOldState;
     std::string incNumOld;
+    bool calstate;
+    bool icall = 0;
 //             bool registerClient(std::string number, std::string state);
-//             bool handleModuleChange(std::map < std::string, std::string >& mapFetchData);
+//             bool handleModuleChange(std::map < std::string, std::string >& FetchData);
 //             bool handleOperData(std::string& name, std::string& xPath) const;
 //             bool handleRpc();
 //             bool handleNotification();
@@ -29,7 +31,7 @@ namespace Mobileclient
     bool MobileClient::registerClient(std::string number, std::string state)
     {
         _number = number;
-        agent = make_unique<NetConfAgent>();
+        agent = std::make_unique<NetConfAgent>();
         std::string xpathMyState = MobileClient::state(_number);
         std::string xpathMyNum = MobileClient::number(_number);
         std::string xpathForSubscribe = "/mobile-network:core/subscribers[number='" + _number + "']";
@@ -47,46 +49,44 @@ namespace Mobileclient
             agent->registerOperData(*this, xpathForSubscribe);
         }
         agent->subscribeForModelChanges(*this, xpathForFetch);
-        std::cout  << "Client " << _name << " registered with number " << _number << std::endl;
+        std::cout  << "Client " << _name << "can registered with number " << _number << std::endl;
     };
-    void MobileClient::handleModuleChange(std::map < std::string, std::string >& mapFetchData) 
-    {
+    void MobileClient::handleModuleChange(std::map < std::string, std::string >& FetchData) 
+{
         std::string xpathMyState = MobileClient::state(_number);
         std::string xpathMyIncNum = MobileClient::incNumber(_number);
-        _incomingNumber = mapFetchData[xpathMyIncNum];
+        _incomingNumber = FetchData[xpathMyIncNum];
         std::string xpathOtherState = MobileClient::state(_incomingNumber);
         std::string xpathOtherStateOldNum;
-         if(iMadeCall == 0)
-            xpathOtherStateOldNum = MobileClient::state(incNumOld);
-         else if(iMadeCall == 1)
+         if(icall == 0)
+         xpathOtherStateOldNum = MobileClient::state(incNumOld);
+         else if(icall == 1)
             xpathOtherStateOldNum = MobileClient::state(outcomingNumber);
-        if(mapFetchData[xpathMyIncNum] != "" && mapFetchData[xpathMyState] == "active")
+        if(FetchData[xpathMyIncNum] != "" && FetchData[xpathMyState] == "active")
         {
-            std::cout<<"Incoming Number " << _incomingNumber << " call"<<std::endl;
+            std::cout<<"Incoming number " << _incomingNumber << " call!!"<<std::endl;
         }
 
-        if(mapFetchData[xpathMyState] == "busy" && mapFetchData[xpathOtherState] == "busy")
+        if(FetchData[xpathMyState] == "busy" && FetchData[xpathOtherState] == "busy")
         {
             std::cout<<"Call is active"<<std::endl;
-            callState = true;
+            calstate = true;
         }
-
-        if(mapFetchData[xpathMyState] == "idle" && mapFetchData[xpathOtherStateOldNum] == "idle" && mapFetchData[xpathMyIncNum] == "" && callState == false)//need to thinking
+        if(FetchData[xpathMyState] == "idle" && FetchData[xpathOtherStateOldNum] == "idle" && FetchData[xpathMyIncNum] == "" && calstate == false)
         {
             std::cout<<"Call rejected"<<std::endl;
-            callState = false;
+            calstate = false;
             incNumOld = "";
         }
-        if(mapFetchData[xpathMyState] == "idle" && mapFetchData[xpathOtherStateOldNum] == "idle" && mapFetchData[xpathMyIncNum] == "" && callState == true)
+        if(FetchData[xpathMyState] == "idle" && FetchData[xpathOtherStateOldNum] == "idle" && FetchData[xpathMyIncNum] == "" && calstate == true)
         {
             std::cout<<"Call ended"<<std::endl;
-            callState = false;
+            calstate = false;
         }
-        if(mapFetchData[xpathMyState] == "busy" && _name == "" && mapFetchData[xpathMyIncNum] == "")
+        if(FetchData[xpathMyState] == "busy" && _name == "" && FetchData[xpathMyIncNum] == "")
         {
             std::cout<<"Client unregistered"<<std::endl;
         }
-
     };
     void MobileClient::handleOperData(std::string& name, std::string& xPath) const
     {
@@ -105,16 +105,16 @@ namespace Mobileclient
         agent->fetchData(xpathOtherClient,CheckNumber);
         if(CheckNumber[xpathOtherState] != "idle")
         {
-            std::cout<<"Client busu"<std::<endl;
+            std::cout<<"Client busu"<<std::endl;
             return false;
         }
-        if(mapCheckNumber[xpathOtherNumber] == _number)
+        if(CheckNumber[xpathOtherNumber] == _number)
         {
             std::cout<<"this u number "<<std::endl;
             return false;
         }
 
-        else if(mapCheckNumber[xpathOtherNumber] == number)
+        else if(CheckNumber[xpathOtherNumber] == number)
         {
             agent->changeData(xpathOtherIncNum, _number);
             agent->changeData(xpathMyState, "active");
@@ -122,7 +122,7 @@ namespace Mobileclient
         }
 
         outcomingNumber = number;
-        iMadeCall = 1;
+        icall = 1;
     }
     void MobileClient::setName(std::string name)
     {
@@ -154,9 +154,9 @@ namespace Mobileclient
         std::string xpathOtherIncNum = MobileClient::incNumber(outcomingNumber);
         std::string xpathCheckState = "/mobile-network:core/subscribers";
         std::string xpathOtherState;
-        if(iMadeCall == 0)
+        if(icall == 0)
             xpathOtherState = MobileClient::state(incNumOld);
-        else if(iMadeCall == 1)
+        else if(icall == 1)
             xpathOtherState = MobileClient::state(outcomingNumber);
 
        std:: map < std::string, std::string > CheckState;
@@ -167,27 +167,24 @@ namespace Mobileclient
             std::cout<<"Call doesn't exist"<<std::endl;
             return false;
         }
-
-        if(mapCheckState[xpathMyState] == "busy")
+        if(CheckState[xpathMyState] == "busy")
         {
             std::cout<<"You already answer the call!!!"<<std::endl;
             return false;
         }
-
-        if(mapCheckState[xpathMyState] == "active" && iMadeCall == 0)
+        if(CheckState[xpathMyState] == "active" && icall == 0)
         {
             agent->changeData(xpathMyIncNum, "");
             agent->changeData(xpathMyState, "idle");
             agent->changeData(xpathOtherState, "idle");
         }
-
-        if(mapCheckState[xpathMyState] == "active" && iMadeCall == 1)
+        if(CheckState[xpathMyState] == "active" && icall == 1)
         {
             agent->changeData(xpathOtherIncNum, "");
             agent->changeData(xpathMyState, "idle");
             agent->changeData(xpathOtherState, "idle");
         }
-        iMadeCall = 0;
+        icall = 0;
     }
     bool MobileClient::endCall()
     {
@@ -196,11 +193,13 @@ namespace Mobileclient
         std::string xpathMyIncNum = MobileClient::incNumber(_number);
         std::string xpathOtherIncNum = MobileClient::incNumber(outcomingNumber);
         std::string xpathCheckState = "/mobile-network:core/subscribers";
-        string xpathOtherState;
-        if(iMadeCall == 0)
+        std::string xpathOtherState;
+        if(icall == 0){
             xpathOtherState = MobileClient::state(incNumOld);
-        else if(iMadeCall == 1)
+        }
+        else if(icall == 1){
             xpathOtherState = MobileClient::state(outcomingNumber);
+        }
         std::map <std::string,std::string > mapCheckState;
         agent->fetchData(xpathCheckState, mapCheckState);
         if(mapCheckState[xpathMyState] == "idle")
@@ -213,19 +212,19 @@ namespace Mobileclient
             std::cout<<"You didn't answer the call!!!"<<std::endl;
             return false;
         }
-        if(mapCheckState[xpathMyState] == "busy" && iMadeCall == 0)
+        if(mapCheckState[xpathMyState] == "busy" && icall == 0)
         {
             agent->changeData(xpathMyState, "idle");
             agent->changeData(xpathOtherState, "idle");
             agent->changeData(xpathMyIncNum, "");
         }
-        if(mapCheckState[xpathMyState] == "busy" && iMadeCall == 1)
+        if(mapCheckState[xpathMyState] == "busy" && icall == 1)
         {
             agent->changeData(xpathMyState, "idle");
             agent->changeData(xpathOtherState, "idle");
             agent->changeData(xpathOtherIncNum, "");
         }
-        iMadeCall = 0;
+        icall = 0;
     }
     bool MobileClient::unRegisterClient()
     {
@@ -267,6 +266,5 @@ namespace Mobileclient
     {
         return "/mobile-network:core/subscribers[number='" + arg + "']/state";
     }
-    bool callState;
-    bool iMadeCall = 0;
+
 }

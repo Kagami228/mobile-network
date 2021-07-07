@@ -23,15 +23,15 @@ namespace Mobileclient
         
         public:
             bool registerClient(std::string number, std::string state);
-            bool handleModuleChange(std::map < std::string, std::string >& mapFetchData);
-            bool handleOperData(std::string& name, std::string& xPath) const;
+            void handleModuleChange(std::map < std::string, std::string >& mapFetchData);
+            void handleOperData(std::string& name, std::string& xPath) const;
             bool handleRpc();
             bool handleNotification();
             bool makeCall(std::string number);
             bool rejectCall();
             bool answerCall();
             bool endCall();
-            bool setName(std::string name);
+            void setName(std::string name);
             bool unRegisterClient();
             std::string userName(std::string arg);
             std::string number(std::string arg);

@@ -1,36 +1,45 @@
 #include "includes/NetConfAgent.hpp"
+#include "includes/MobileClient.hpp"
 #include <thread>
 #include <functional>
 
 using namespace Netconfagent;
 using namespace Mobileclient;
- 
+MobileClient client;
+
 void Registr_user(const std::string &phone, const std::string &user)
 {
+    client.registerClient(phone, "idle");
     std::cout << user << " was register by " << phone << std::endl;
 }
 void Unregistr()
 {
+    client.unRegisterClient();
     std::cout << "You unregistrd your phone" << std::endl;
 }
 void Calling_to_phone(const std::string phone)
 {
+    client.makeCall(phone);
     std::cout << "calling..." << std::endl;
 }
 void Answer()
 {
+    client.answerCall();
     std::cout << "conversation" << std::endl;
 }
 void CallEnd()
 {
+    client.endCall();
     std::cout << "callEnd" << std::endl;
 }
 void Reject()
 {
+    client.rejectCall();
     std::cout << "rejected" << std::endl;
 }
 void Change_Name(const std::string &name)
 {
+    client.setName(name);
     std::cout << "Your new name " << name << std::endl;
 }
 struct exit_exception : std::exception
@@ -75,22 +84,7 @@ void cmd_call(std::vector<std::string> &s)
     if (s.size() == 3)
         commands[s[0]](s[1], s[2]);
 }
-// struct is_delimiter
-// {
-//     is_delimiter(std::string delimiters):_delimiters(delimiters){
-//     }
-//     bool operator ()(char c){
-//         bool res=false;
-//         for(auto cc:_delimiters)
-//         {
-//             res = c==cc;
-//             if(res)
-//                 break;
-//         }
-//         return res;
-//     }
-//     std::string _delimiters;
-// };
+
 std::vector<std::string> split(std::string str, const std::string & delimiters)
 {
     std::vector<std::string> result;
@@ -121,10 +115,6 @@ std::vector<std::string> split(std::string str, const std::string & delimiters)
 
 int main()
 {
-    std::cout<<"sdfsdfdsfdsfds";
-    NetConfAgent n_C_A;
-    //MobileClient m_b;
-    n_C_A.initSysrepo();
     do
     {
         std::vector<std::string> cmd;
@@ -133,7 +123,7 @@ int main()
         size_t pos = 0;
 
         std::getline(std::cin, command);
-        std::cout << "token" << std::endl;
+       // std::cout << "token" << std::endl;
         int i = 0;
         cmd= split(command," ");
         try 
