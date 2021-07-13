@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
+
 #include "NetConfAgent.hpp"
 #include "libsysrepocpp/headers/Session.hpp"
 
@@ -14,29 +15,32 @@ using namespace Netconfagent;
 
 namespace Mobileclient
 {
-    class MobileClient
-    {
-    std::unique_ptr<NetConfAgent> agent;
+
+class MobileClient
+{
+    std::unique_ptr<Netconfagent::NetConfAgent> _agent;
     std::string _name;
     std::string _number;
     std::string _incomingNumber;
-        
-        public:
-            bool registerClient(std::string number, std::string state,std::string name);
-            void handleModuleChange(std::map < std::string, std::string >& mapFetchData);
-            void handleOperData(std::string& name, std::string& xPath) const;
-            bool handleRpc();
-            bool handleNotification();
-            bool makeCall(std::string number);
-            bool rejectCall();
-            bool answerCall();
-            bool endCall();
-            void setName(std::string name);
-            bool unRegisterClient();
-            std::string userName(std::string arg);
-            std::string number(std::string arg);
-            std::string incNumber(std::string arg);
-            std::string state(std::string arg);
+    std::string _outcomingNumber;
+    std::string _state;
+    bool _callState;
+    public:
+        MobileClient();
+        MobileClient(std::unique_ptr<Netconfagent::NetConfAgent> agent_NetConf);
+        bool registerClient(std::string number,std::string name);
+        bool unRegisterClient();
+        void handleModuleChange(std::map < std::string, std::string >& _fetch_data) ;
+        void handleOperData(std::string& name, std::string& xPath) const;
+        void handleRpc();
+        void handleNotification();
+        bool makeCall(std::string number);
+        bool answerCall();
+        bool rejectCall();
+        bool endCall();
+        void setName(std::string name);
+        std::string getName();
+    
+};
 
-    };
 }

@@ -9,7 +9,7 @@ MobileClient client;
 
 void Registr_user(const std::string phone, const std::string user)
 {
-    client.registerClient(phone, "idle",user);
+    client.registerClient(phone,user);
 }
 void Unregistr()
 {
@@ -44,6 +44,7 @@ struct exit_exception : std::exception
         return  _mess.c_str();
     }
 };
+
 void cmd_call(std::vector<std::string> &s)
 {
 
@@ -57,31 +58,38 @@ void cmd_call(std::vector<std::string> &s)
     { Change_Name(p1); };
     commands["reject"] = [](const std::string &p1, const std::string &p2)
     { Reject(); };
-    commands["Callend"] = [](const std::string &p1, const std::string &p2)
+    commands["callEnd"] = [](const std::string &p1, const std::string &p2)
     { CallEnd(); };
-    commands["unregistr"] = [](const std::string &p1, const std::string &p2)
+    commands["unregister"] = [](const std::string &p1, const std::string &p2)
     { Unregistr(); };
-    commands["answer"] = [](const std::string &p1, const std::string &p2)
+    commands["answear"] = [](const std::string &p1, const std::string &p2)
     { Answer(); };
     commands["exit"] = [](const std::string &p1, const std::string &p2)
     { 
+        Unregistr();
         throw exit_exception(); 
     };
-
     if (commands.find(s[0]) == commands.end())
+    {
         return;
+    }
     if (s.size() == 1)
+    {
         commands[s[0]]("", "");
+    }
     if (s.size() == 2)
+    {
         commands[s[0]](s[1], "");
+    }
     if (s.size() == 3)
-        commands[s[0]](s[1], s[2]);
+    {
+       commands[s[0]](s[1], s[2]);
+    }
 }
 
 std::vector<std::string> split(std::string str, const std::string & delimiters)
 {
     std::vector<std::string> result;
-
     //is_delimiter is_del(delimeters);
     auto is_del = [delimiters](char c){
         bool res=false;
@@ -89,11 +97,12 @@ std::vector<std::string> split(std::string str, const std::string & delimiters)
         {
             res = c==cc;
             if(res)
+            {
                 break;
+            }
         }
         return res;
     };
-
 
     for(int i=0; i<= str.length();i++){
         if(is_del(str[i])){
@@ -103,7 +112,7 @@ std::vector<std::string> split(std::string str, const std::string & delimiters)
         }
     }
    // if(result.empty())
-     result.push_back(str);
+    result.push_back(str);
     return result;
 }
 
@@ -122,8 +131,10 @@ int main()
         cmd= split(command," ");
         try 
         {
-             if(!cmd.empty())
+            if(!cmd.empty())
+            {
                 cmd_call(cmd);
+            }
         }
         catch (const exit_exception &  e)
         {
